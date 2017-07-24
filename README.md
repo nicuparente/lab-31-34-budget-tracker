@@ -38,12 +38,12 @@ Your lab directory must include
  
 #### Feature Tasks 
 ##### category 
-* in this app a category should contain at least the following propertys
+* in this app a category should contain at least the following properties
   * `id` a uuid
   * `timestamp` a date from when the category was created
   * `name` a string that is the name of the category
   * `budget` a number that is the total amount of $ in the category 
-  * fell free to add more to your cattegorys if you want
+  * fell free to add more to your categories if you want
 
 ##### redux
 ###### reducer
@@ -77,8 +77,8 @@ The App component should set up the Provider for the redux store and the Router.
 ###### Dashboard Component 
 * should be displayed on the `/` route
 * should use react-redux's `connect` to map state and dispatchable methods to props
-* should display a category form for adding categorys to the app state
-* should display a category item for each category in the app state
+* should display a `CategoryForm` for adding categories to the app state
+* should display a `CategoryItem` for each category in the app state
 
 ###### CategoryForm Component
 * should expect an `onComplete` prop to be a function
