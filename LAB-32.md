@@ -22,7 +22,7 @@
 * create a reducer that will combine you categories reducer and expenses reducer
 
 
-##### expenses reducer
+###### expenses reducer
 * create a category reducer in your your reducer directory
 * this reducer should atleast support the following interactions 
   * `EXPENSE_CREATE` -- store an expense
