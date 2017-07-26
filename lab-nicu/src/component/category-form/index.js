@@ -3,7 +3,7 @@ import React from 'react'
 
 
 class CategoryForm extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
     this.state = {
       name: props.name ? props.name : '',
@@ -12,14 +12,18 @@ class CategoryForm extends React.Component {
     this.onHandleChange = this.onHandleChange.bind(this)
     this.onHandleComplete = this.onHandleComplete.bind(this)
   }
-  
-  onHandleChange(event){
-    console.log(`${event.target.name} : ${event.target.value}`)
-    this.setState({ [event.target.name]: event.target.value})
+  componentWillReceiveProps(props) {
+    if (props.category)
+      this.setState(props.category)
   }
-  
-  onHandleComplete(event){
+
+  onHandleChange(event) {
+    this.setState({ [event.target.name]: event.target.value })
+  }
+
+  onHandleComplete(event) {
     event.preventDefault()
+    console.log('__PROPS_on_change', this.props)
     this.props.onComplete(Object.assign({}, this.state))
   }
   //Render

@@ -10,9 +10,11 @@ export default (state = initialState, action) => {
     return [...state, payload]
 
   case 'CATEGORY_UPDATE':
+    console.log('updating',action)
     return state.filter(category => category.id === payload.id ? payload : category)
   
   case 'CATEGORY_DESTROY':
+    console.log('destroying', action)
     return state.filter(category => category.id !== payload.id)
   default:
     return initialState

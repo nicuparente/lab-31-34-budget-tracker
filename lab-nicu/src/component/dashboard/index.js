@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import CategoryForm from '../category-form'
+import CategoryItem from '../category-item'
 
 import {
   categoryCreate,
@@ -12,10 +13,19 @@ import {
 
 class Dashboard extends React.Component {
   render() {
+    console.log(this.props.categories)
     return (
       <div>
         <h1>My Dashboard</h1>
-        <CategoryForm title='Submit' onComplete={this.props.categoryCreate}/>
+        <CategoryForm title='Submit' onComplete={this.props.categoryCreate} />
+        {
+          this.props.categories.map(category => {
+            return <div>
+              <CategoryItem onDelete={this.props.categoryDestroy} category={category} />
+              <CategoryForm title='Update' onComplete={this.props.categoryUpdate} />
+            </div>
+          })
+        }
       </div>
     )
   }
