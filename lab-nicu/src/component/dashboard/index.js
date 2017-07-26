@@ -13,7 +13,6 @@ import {
 
 class Dashboard extends React.Component {
   render() {
-    console.log(this.props.categories)
     return (
       <div>
         <h1>My Dashboard</h1>
@@ -22,7 +21,6 @@ class Dashboard extends React.Component {
           this.props.categories.map(category => {
             return <div>
               <CategoryItem onDelete={this.props.categoryDestroy} category={category} />
-              <CategoryForm title='Update' onComplete={this.props.categoryUpdate} />
             </div>
           })
         }

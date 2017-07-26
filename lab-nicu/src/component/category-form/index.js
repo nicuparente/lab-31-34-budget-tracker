@@ -5,10 +5,7 @@ import React from 'react'
 class CategoryForm extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      name: props.name ? props.name : '',
-      budget: props.budget ? props.budget : 0,
-    }
+    this.state = props.category ? {...props.category} : {name: '', budget: 0}
     this.onHandleChange = this.onHandleChange.bind(this)
     this.onHandleComplete = this.onHandleComplete.bind(this)
   }
@@ -23,8 +20,9 @@ class CategoryForm extends React.Component {
 
   onHandleComplete(event) {
     event.preventDefault()
-    console.log('__PROPS_on_change', this.props)
-    this.props.onComplete(Object.assign({}, this.state))
+    this.props.onComplete({...this.state})
+    if(!this.props.category)
+      this.setState({name: ''})
   }
   //Render
   render() {
